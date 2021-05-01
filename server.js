@@ -41,25 +41,23 @@ app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'reserve.htm
 // displays all tables and waitlist = 2 api calls
 app.get('/api/tables', (req, res) => res.json(tables));
 
-app.get('/api/waitlist', (req, res) => res.json(waitlist));
-
+app.get('/api/waitlist', (req, res) => res.json(waitList));
 
 
 // Create new table
 app.post('/api/tables', (req,res) => {
-  // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body parsing middleware
-  const newTable = req.body;
-  const newWaitlist = req.body;
-
-  if (tables <= 5) {
-    tables.push(newTable);
-    res.json(newTable);
-  } else {
-    waitlist.push(newWaitlist);
-  }
-});
-
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    const newTable = req.body;
+    const newWaitlist = req.body;
+  
+    if (tables <= 5) {
+      tables.push(newTable);
+      res.json(newTable);
+    } else {
+      res.push(newWaitlist);
+    }
+  });
 
 
 // Starts the server to begin listening
