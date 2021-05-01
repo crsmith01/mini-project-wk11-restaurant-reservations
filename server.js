@@ -6,35 +6,44 @@ const path = require('path');
 // Sets up the Express App
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Star Wars Characters (DATA)
+// Table information
 
-const characters = [
+const tableReservation = [
   {
-    routeName: 'yoda',
-    name: 'Yoda',
-    role: 'Jedi Master',
-    age: 900,
-    forcePoints: 2000,
+    customerName: ,
+    phoneNumber: ,
+    email: ,
+    uniqueID: ,
   },
   {
-    routeName: 'darthmaul',
-    name: 'Darth Maul',
-    role: 'Sith Lord',
-    age: 200,
-    forcePoints: 1200,
+    customerName: ,
+    phoneNumber: ,
+    email: ,
+    uniqueID: ,
   },
   {
-    routeName: 'obiwankenobi',
-    name: 'Obi Wan Kenobi',
-    role: 'Jedi Master',
-    age: 55,
-    forcePoints: 1350,
+    customerName: ,
+    phoneNumber: ,
+    email: ,
+    uniqueID: ,
+  },
+  {
+    customerName: ,
+    phoneNumber: ,
+    email: ,
+    uniqueID: ,
+  },
+  {
+    customerName: ,
+    phoneNumber: ,
+    email: ,
+    uniqueID: ,
   },
 ];
 
