@@ -14,9 +14,9 @@
         <h1 class="text-center">Hot Restaurant</h1>
         <h3 class="text-center">Make your reservation</h3>
         <hr />
-        <a href="/">
-          <button class="btn btn-danger btn-lg ">
-            <span class="fa fa-eye"></span> Make Reservation
+        <a href="/tables">
+          <button class="btn btn-primary btn-lg ">
+            <span class="fa fa-eye"></span> View Tables
           </button>
         </a>
       </div>
@@ -34,17 +34,17 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="role">Phone Number</label>
+                  <label for="phone">Phone Number</label>
                   <input type="text" class="form-control" id="role" />
                 </div>
 
                 <div class="form-group">
-                  <label for="age">Email</label>
+                  <label for="email">Email</label>
                   <input type="text" class="form-control" id="age" />
                 </div>
 
                 <div class="form-group">
-                  <label for="force-points">Unique ID</label>
+                  <label for="ID">Unique ID</label>
                   <input type="text" class="form-control" id="force-points" />
                 </div>
               </form>
@@ -63,10 +63,10 @@
         </div>
       </div>
     </div>
-
-    <a href=""></a>
-    <a href=""></a>
-
+  <div>
+    <a href="/api/tables">API Table Link</a> | 
+    <a href="/api/waitlist">API Wait List</a>
+  </div>
     <script type="text/javascript">
       
       const addBtn = document.getElementById('add-btn');
@@ -80,21 +80,21 @@
         // takes user input in those form fields and trims (removes white space)
         // then creates new character object with that information 
         // parseInt = parse integer so character age and force points can be stored as is (not as a string like name and role)
-        let charName = document.getElementById('name').value.trim();
-        let charRole = document.getElementById('role').value.trim();
-        let charAge = document.getElementById('age').value.trim();
-        let charFp = document.getElementById('force-points').value.trim();
+        let name = document.getElementById('name').value.trim();
+        let phone = document.getElementById('phone').value.trim();
+        let email = document.getElementById('email').value.trim();
+        let ID = document.getElementById('ID').value.trim();
         
-        let newCharacter = {
-          name: charName,
-          role: charRole,
+        let newReserve = {
+          name: name,
+          phoneNumber: phone,
           age: parseInt(charAge),
-          forcePoints: parseInt(charFp),
+          ID: parseInt(charFp),
         };
 
         // Question: What does this code do??
         // api call to post that new (and stringified) character. also console logs the add.html and creates an alert for that you are creating a new character
-        fetch('/api/characters', {
+        fetch('/api/tables', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
