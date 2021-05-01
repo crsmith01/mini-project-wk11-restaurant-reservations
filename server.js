@@ -23,7 +23,7 @@ app.use(express.json());
 const tables = [];
 
 
-const waitList = [];
+const waitlist = [];
 
 
 
@@ -44,6 +44,36 @@ app.get('/api/waitlist', (req, res) => res.json(waitList));
 
 
 
+// Create new table
+app.post('/api/tables', (req,res) => {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body parsing middleware
+  const newTable = req.body;
+  const newWaitlist = req.body;
+
+  if (tables <= 5) {
+    tables.push(newTable);
+    res.json(newTable);
+  } else {
+    waitlist.push(newWaitlist);
+  }
+});
+
+
+// Create New Characters - takes in JSON input
+app.post('/api/characters', (req, res) => {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body parsing middleware
+  const newCharacter = req.body;
+
+  // Using a RegEx Pattern to remove spaces from newCharacter
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();
+  console.log(newCharacter);
+
+  characters.push(newCharacter);
+  res.json(newCharacter);
+});
 
 
 // // Displays a single character, or returns false
