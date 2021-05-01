@@ -43,8 +43,35 @@ app.get('/api/tables', (req, res) => res.json(tables));
 app.get('/api/waitlist', (req, res) => res.json(waitList));
 
 
+// Create new table
+app.post('/api/tables', (req,res) => {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    const newTable = req.body;
+    const newWaitlist = req.body;
+  
+    if (tables <= 5) {
+      tables.push(newTable);
+      res.json(newTable);
+    } else {
+      waitlist.push(newWaitlist);
+    }
+  });
 
 
+app.post('/api/tables', (req,res) => {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    const newTable = req.body;
+    const newWaitlist = req.body;
+  
+    if (tables <= 5) {
+      tables.push(newTable);
+      res.json(newTable);
+    } else {
+      res.push(newWaitlist);
+    }
+  });
 
 // // Displays a single character, or returns false
 // app.get('/api/characters/:character', (req, res) => {
